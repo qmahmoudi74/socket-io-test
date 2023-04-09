@@ -1,6 +1,13 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import AppChakraProvider from "@/providers/AppChakraProvider";
+import type { AppProps } from "next/app";
+import type { FC } from "react";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App: FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <AppChakraProvider>
+      <Component {...pageProps} />
+    </AppChakraProvider>
+  );
+};
+
+export default App;
